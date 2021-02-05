@@ -10,7 +10,7 @@ public class AppConfig {
 
 	@Bean
 	public String message() {
-		return "helloWorld";
+		return "hello World";
 	}
 
 	@Bean
