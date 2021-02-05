@@ -18,8 +18,8 @@ import com.qa.persistance.domain.Todo;
 @RequestMapping("/todo")
 public class TodoController {
 	
-    private Long id = 0L;
-	private List<Todo> todoList = new ArrayList<>();
+//    private Long id = 0L;
+//	private List<Todo> todoList = new ArrayList<>();
 
 	@GetMapping("/helloWorld")
 	public String helloWorld() {
@@ -28,38 +28,65 @@ public class TodoController {
 
 	// GET
 
+//	@GetMapping("/readAll")
+//	public List<Todo> readAll() {
+//		return todoList;
+//	}
+	
 	@GetMapping("/readAll")
 	public List<Todo> readAll() {
-		return todoList;
+		return null;
 	}
 	
+//	@GetMapping("/read/{id}")
+//	public Todo readTodo(@PathVariable("id") Long id) {
+//		return todoList.get(id.intValue());
+//	}
+
 	@GetMapping("/read/{id}")
 	public Todo readTodo(@PathVariable("id") Long id) {
-		return todoList.get(id.intValue());
+		return null;
 	}
-
+	
 	// POST= CREATE
 
+//	@PostMapping("/create")
+//	public boolean createTodo(@RequestBody Todo todo) {
+//		todo.setId(id);
+//		id++;
+//		
+//		return todoList.add(todo);
+//	}
+	
 	@PostMapping("/create")
 	public boolean createTodo(@RequestBody Todo todo) {
-		todo.setId(id);
-		id++;
-		
-		return todoList.add(todo);
+		return false;
 	}
 
 	// PUT = UPDATE
+//	@PutMapping("/update/{id}")
+//	public Todo updateTodo(@PathVariable("id") Long id, @RequestBody Todo todo) {
+//		this.todoList.remove(id.intValue());
+//		this.todoList.add(id.intValue(), todo);
+//		return this.todoList.get(id.intValue());
+//	}
+	
 	@PutMapping("/update/{id}")
 	public Todo updateTodo(@PathVariable("id") Long id, @RequestBody Todo todo) {
-		this.todoList.remove(id.intValue());
-		this.todoList.add(id.intValue(), todo);
-		return this.todoList.get(id.intValue());
+		return null;
 	}
 
+
 	// DELETE
+//	@DeleteMapping("/delete/{id}")
+//	public Todo deleteTodo(@PathVariable("id") Long id) {
+//		return todoList.remove(id.intValue());
+//	}
+	
 	@DeleteMapping("/delete/{id}")
 	public Todo deleteTodo(@PathVariable("id") Long id) {
-		return todoList.remove(id.intValue());
+		return null;
 	}
+
 
 }
