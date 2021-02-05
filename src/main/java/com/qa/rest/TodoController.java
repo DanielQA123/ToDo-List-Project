@@ -69,8 +69,8 @@ public class TodoController {
 //	}
 
 	@PostMapping("/create")
-	public boolean createTodo(@RequestBody Todo todo) {
-		return false;
+	public Todo createTodo(@RequestBody Todo todo) {
+		return this.service.createTodo(todo);
 	}
 
 	// PUT = UPDATE

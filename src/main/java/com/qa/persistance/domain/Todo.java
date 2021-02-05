@@ -17,7 +17,7 @@ public class Todo {
 	
 	private String title; 
 	
-	@Size(min = 15, message="Enter Your Objectives")
+//	@Size(min = 15, message="Enter Your Objectives")
 	private String description;
 	private Date date;
 	private boolean finish;
