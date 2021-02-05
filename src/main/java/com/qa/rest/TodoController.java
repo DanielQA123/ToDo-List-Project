@@ -17,7 +17,8 @@ import com.qa.persistance.domain.Todo;
 @RestController
 @RequestMapping("/todo")
 public class TodoController {
-
+	
+    private Long id = 0L;
 	private List<Todo> todoList = new ArrayList<>();
 
 	@GetMapping("/helloWorld")
@@ -27,15 +28,23 @@ public class TodoController {
 
 	// GET
 
-	@GetMapping("/getTodo")
+	@GetMapping("/readAll")
 	public List<Todo> readAll() {
 		return todoList;
+	}
+	
+	@GetMapping("/read/{id}")
+	public Todo readTodo(@PathVariable("id") Long id) {
+		return todoList.get(id.intValue());
 	}
 
 	// POST= CREATE
 
 	@PostMapping("/create")
 	public boolean createTodo(@RequestBody Todo todo) {
+		todo.setId(id);
+		id++;
+		
 		return todoList.add(todo);
 	}
 
