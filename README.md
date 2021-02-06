@@ -6,25 +6,40 @@
 This repository is to show the creation of a basic To-Do List web app, by using the learning material from week 1-7 from QA Academy. To develop a working frontend and backend with full use of the CRUD functionality when connected to a local SQL database. 
 This README file will give you the material to download the required software needed for the project, some notes about testing the project and any other useful information.
 
-
 ## Getting Started
 
 The instructions below will help you get a version of this project up and running in a local environment or on your local machine for developing and testing purposes. 
 See the prequisites and the deployment section for further details about the live environment and any other related info about the project.
 
-
 ### Prerequisites
 
-The information below are the required software needed to host this project on your local environment/machine. With links to their URL to download the software: 
+The information below are the required software needed to host this project on your local environment/machine, With links and resources to their URL to download the software. 
+Check the download section of the README, to install the neccessary software by following the weblinks. 
 
 The required software:
-- 
-- Test c
-- Know bugs
-- Version
-- Contributors
-- License
-- References
+
+- Version Control System: git  
+- GitHub Account 
+- Java (Version 14 or 14.01)
+- Eclipse IDE
+- SpringBoot 
+- Postman 
+- Visual Studio Code 
+- Maven 
+- Google Cloud Platform with SQL (or MySQL workbench)
+
+### Download
+
+Here are the links for the prequities: 
+
+
+
+
+### Installation
+
+This section gives a list of instructions that are needed to download the software to get a devlopment environment running, which are listed in the prerequisites section of the README. 
+The steps below give a basic method to install the software, with reference to YouTube tutorials. 
+
 
 
 ## Prepare the content
