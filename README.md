@@ -1,5 +1,5 @@
 # To-Do-List-Project
-####Test Coverage: ~
+##Test Coverage: ~
 
 ---
 #Project Description
@@ -175,7 +175,7 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 * Alan Davis 
-*Savannah ..
+* Savannah ..
 
 
 ---
