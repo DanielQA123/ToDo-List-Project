@@ -1,16 +1,20 @@
 # To-Do-List-Project
 ####Test Coverage: ~
 
+---
 #Project Description
 
-This repository is to show the creation of a basic To-Do List web app, by using the learning material from week 1-7 from QA Academy. To develop a working frontend and backend with full use of the CRUD functionality when connected to a local SQL database. 
+This repository is to show the creation of a basic To-Do List web app, by using the learning material from week 1-7 from QA Academy. To develop a To-Do List Web Application that has a working frontend and backend with full use of the CRUD functionality when connected to a local SQL database. 
 This README file will give you the material to download the required software needed for the project, some notes about testing the project and any other useful information.
 
+
+---
 ## Getting Started
 
 The instructions below will help you get a version of this project up and running in a local environment or on your local machine for developing and testing purposes. 
 See the prequisites and the deployment section for further details about the live environment and any other related info about the project.
 
+---
 ### Prerequisites
 
 The information below are the required software needed to host this project on your local environment/machine, With links and resources to their URL to download the software. 
@@ -28,6 +32,8 @@ The required software:
 - Maven 
 - Google Cloud Platform with SQL (or MySQL workbench)
 
+
+---
 ### Downloads
 
   - Version control system: 
@@ -70,12 +76,18 @@ The required software:
     * [MySQLWorkbench](https://dev.mysql.com/downloads/workbench/) 
 
 
+---
 ### Installation
 
 This section gives a list of instructions that are needed to download the software to get a devlopment environment running, which are listed in the prerequisites section of the README. 
-The steps below give a basic method to install the software, with reference to YouTube tutorials. 
 
 
+1. **_Step one_** You can fork and clone this to your local computer  
+2. **_Step two_** Open the project in your IDE as a Maven project  
+3. **_Step three_** You will need to change the JDBCconnection url
+
+
+---
 ## Testing 
 
  - What is Testing:
@@ -84,7 +96,8 @@ The steps below give a basic method to install the software, with reference to Y
     - For this project a JUnit test, a mockito test and intergration test were conducted 
 
     
-1. Java: 
+1. JUnit Testing:
+    - A JUnit test is  
     * [Java](https://www.java.com/en/download/)
 
 3. What steps need to be taken?
@@ -104,6 +117,8 @@ other things you could add:
 - License
 - References
 
+
+---
 ## Templates
 
 - _cheatsheet.md
@@ -113,26 +128,36 @@ other things you could add:
 - opensource.md
     - a template for an open source project made by [@dbader](https://github.com/dbader)
 
+
+---
 ## Further Contribution
 
 Please feel free to contribute by adding new templates to this project:
 
-1. Fork it (<https://github.com/inessadl/readme>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
+1. Fork it (<https://github.com/DanielQA123/ToDo-List-Project>)
+2. Create a new feature branch, remember to branch out of master/main (`git checkout -b <feature branch name>`)
+3. Add these changes to your staging area (`git add .`)
+4. Commit your changes (`git commit -m 'Add some fooBar'`)
+5. Push to the branch (`git push origin <feature branch name>`)
+6. Create a new Pull Request
 
+
+---
 ## Deployment
 
+
+---
 ## Built With
 
 * [Maven](https://maven.apache.org/) - Dependency Management
 
+
+---
 ## Authors
 
 Daniel Ahuchogu
 
+---
 ### References
 
 - **Choose an open source license**. Github. Available at: https://choosealicense.com/
@@ -142,9 +167,15 @@ Daniel Ahuchogu
 - **readme-template**. Dan Bader. Github. Available at: https://github.com/dbader/readme-template
 - Writing READMEs. **Udacity**. Available at: https://classroom.udacity.com/courses/ud777/
 
+
+---
 ## License
 
 This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md) file for details 
 
 ## Acknowledgments
 * Alan Davis 
+*Savannah ..
+
+
+---
