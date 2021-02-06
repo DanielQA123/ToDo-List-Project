@@ -28,11 +28,46 @@ The required software:
 - Maven 
 - Google Cloud Platform with SQL (or MySQL workbench)
 
-### Download
+### Downloads
 
-Here are the links for the prequities: 
+  - Version control system: 
+    * [Git](https://git-scm.com/downloads)
 
 
+  - GitHub Account: 
+    * [GitHub](https://github.com/)
+
+
+  - Java: 
+    * [Java](https://www.java.com/en/download/)
+
+
+  - Eclipse IDE:
+    * [Eclipse IDE](https://www.eclipse.org/downloads/)
+
+
+  - Maven:
+    * [Maven](https://maven.apache.org/index.html) 
+
+
+  - SpringBoot Tools 4 for Eclipse:
+    * [SpringBoot](https://spring.io/tools) 
+
+
+  - Postman:
+    * [Postman](https://www.postman.com/downloads/) 
+
+
+  - Visual Studio Code:
+    * [Visual Studio Code](https://code.visualstudio.com/) 
+
+
+  - Google Cloud Platform for SQL:
+    * [SQL on Google Platform](https://console.cloud.google.com/) 
+
+
+  - SQL for Local Host:
+    * [MySQLWorkbench](https://dev.mysql.com/downloads/workbench/) 
 
 
 ### Installation
