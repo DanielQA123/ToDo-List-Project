@@ -76,10 +76,9 @@ This section gives a list of instructions that are needed to download the softwa
 The steps below give a basic method to install the software, with reference to YouTube tutorials. 
 
 
+## Testing 
 
-## Prepare the content
-
-1. What is about?
+1. What is Testing?
     - Describe the content of your project or repository
     - Explain things the users would have a hard time understanding right away
 2. What steps need to be taken?
@@ -119,6 +118,15 @@ Please feel free to contribute by adding new templates to this project:
 5. Create a new Pull Request
 
 
+## Built With
+
+
+* [Maven](https://maven.apache.org/) - Dependency Management
+
+## Authors
+
+Daniel Ahuchogu
+
 ### References
 
 - **Choose an open source license**. Github. Available at: https://choosealicense.com/
@@ -127,3 +135,9 @@ Please feel free to contribute by adding new templates to this project:
 - **Markdown quick reference**. Wordpress. Available at: https://en.support.wordpress.com/markdown-quick-reference/
 - **readme-template**. Dan Bader. Github. Available at: https://github.com/dbader/readme-template
 - Writing READMEs. **Udacity**. Available at: https://classroom.udacity.com/courses/ud777/
+
+## License
+
+This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md) file for details 
+
+## Acknowledgments
