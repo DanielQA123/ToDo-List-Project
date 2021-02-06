@@ -30,7 +30,7 @@ public class TodoService {
 	// POST => CREATE:
 
 	public TodoDTO createTodo(Todo todo) {
-		return this.repo.save(todo);
+		return this.map(this.repo.save(todo));
 	}
 
 }

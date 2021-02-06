@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.persistance.domain.Todo;
+import com.qa.persistance.dtos.TodoDTO;
 import com.qa.services.TodoService;
 
 @RestController
@@ -69,7 +70,7 @@ public class TodoController {
 //	}
 
 	@PostMapping("/create")
-	public Todo createTodo(@RequestBody Todo todo) {
+	public TodoDTO createTodo(@RequestBody Todo todo) {
 		return this.service.createTodo(todo);
 	}
 
