@@ -78,14 +78,20 @@ The steps below give a basic method to install the software, with reference to Y
 
 ## Testing 
 
-1. What is Testing?
-    - Describe the content of your project or repository
-    - Explain things the users would have a hard time understanding right away
-2. What steps need to be taken?
+ - What is Testing:
+    - Testing helps us test the functionality of a code to determine how well it works in a working environment. 
+    - Its important because it increases the quality of the delivered code. This means code is less likely to break when in use.
+    - For this project a JUnit test, a mockito test and intergration test were conducted 
+
+    
+1. Java: 
+    * [Java](https://www.java.com/en/download/)
+
+3. What steps need to be taken?
     - Do they need to install any software?
     - Is there any hardware requirements or dependencies?
     - After the installation, how they compile or run the code?
-3. Execution examples
+4. Execution examples
     - You could provide examples of execution with code and screenshots
 
 other things you could add:
@@ -107,7 +113,7 @@ other things you could add:
 - opensource.md
     - a template for an open source project made by [@dbader](https://github.com/dbader)
 
-## Contributing
+## Further Contribution
 
 Please feel free to contribute by adding new templates to this project:
 
@@ -117,9 +123,9 @@ Please feel free to contribute by adding new templates to this project:
 4. Push to the branch (`git push origin feature/fooBar`)
 5. Create a new Pull Request
 
+## Deployment
 
 ## Built With
-
 
 * [Maven](https://maven.apache.org/) - Dependency Management
 
@@ -141,3 +147,4 @@ Daniel Ahuchogu
 This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md) file for details 
 
 ## Acknowledgments
+* Alan Davis 
