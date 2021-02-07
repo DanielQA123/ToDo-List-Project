@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,7 +47,7 @@ public class TodoController {
 //	}
 
 	@GetMapping("/readAll")
-	public List<Todo> readAll() {
+	public ResponseEntity<List<TodoDTO>> readAll() {
 		return null;
 	}
 
@@ -70,8 +72,8 @@ public class TodoController {
 //	}
 
 	@PostMapping("/create")
-	public TodoDTO createTodo(@RequestBody Todo todo) {
-		return this.service.createTodo(todo);
+	public ResponseEntity <TodoDTO> createTodo(@RequestBody Todo todo) {
+		return new ResponseEntity<TodoDTO>(this.service.createTodo(todo), HttpStatus.CREATED);
 	}
 
 	// PUT = UPDATE

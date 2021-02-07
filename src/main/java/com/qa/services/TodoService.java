@@ -1,5 +1,8 @@
 package com.qa.services;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,14 +26,23 @@ public class TodoService {
 		this.mapper = mapper;
 	}
 
-	private TodoDTO map(Todo model) {
+	private TodoDTO mapToDTO(Todo model) {
 		return this.mapper.map(model, TodoDTO.class);
+	}
+	
+	//GET => READ:
+	
+	public List<TodoDTO> readAll(){
+		List<Todo> dbList = this.repo.findAll();
+		List<TodoDTO> resultList = dbList.stream().map(this::mapToDTO).collect(Collectors.toList());
+		
+		return resultList;
 	}
 
 	// POST => CREATE:
 
 	public TodoDTO createTodo(Todo todo) {
-		return this.map(this.repo.save(todo));
+		return this.mapToDTO(this.repo.save(todo));
 	}
 
 }
