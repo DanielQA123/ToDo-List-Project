@@ -29,14 +29,18 @@ public class TodoService {
 	private TodoDTO mapToDTO(Todo model) {
 		return this.mapper.map(model, TodoDTO.class);
 	}
-	
-	//GET => READ:
-	
-	public List<TodoDTO> readAll(){
+
+	// GET => READ:
+
+	public List<TodoDTO> readAll() {
 		List<Todo> dbList = this.repo.findAll();
 		List<TodoDTO> resultList = dbList.stream().map(this::mapToDTO).collect(Collectors.toList());
-		
 		return resultList;
+	}
+
+	public TodoDTO readTodo(Long id) {
+		return mapToDTO(this.repo.findById(id).orElseThrow());
+
 	}
 
 	// POST => CREATE:
@@ -44,5 +48,9 @@ public class TodoService {
 	public TodoDTO createTodo(Todo todo) {
 		return this.mapToDTO(this.repo.save(todo));
 	}
+
+	// PUT => UPDATE
+
+	// DELETE
 
 }

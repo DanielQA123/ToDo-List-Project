@@ -48,7 +48,7 @@ public class TodoController {
 
 	@GetMapping("/readAll")
 	public ResponseEntity<List<TodoDTO>> readAll() {
-		return null;
+		return new ResponseEntity <List<TodoDTO>>(this.service.readAll(), HttpStatus.OK);
 	}
 
 //	@GetMapping("/read/{id}")
@@ -57,8 +57,8 @@ public class TodoController {
 //	}
 
 	@GetMapping("/read/{id}")
-	public Todo readTodo(@PathVariable("id") Long id) {
-		return null;
+	public ResponseEntity <TodoDTO> readTodo(@PathVariable("id") Long id) {
+		return new ResponseEntity<TodoDTO>(this.service.readTodo(id), HttpStatus.ACCEPTED);
 	}
 
 	// POST= CREATE
