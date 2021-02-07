@@ -49,8 +49,26 @@ public class TodoService {
 		return this.mapToDTO(this.repo.save(todo));
 	}
 
-	// PUT => UPDATE
+	// PUT => UPDATE:
+	
+	public TodoDTO updateTodo(Long id, Todo newInfo) {
+		this.repo.findById(id).orElseThrow();
+		
+		//my target
+		newInfo.setId(id);
+		
+		return this.mapToDTO(this.repo.save(newInfo));
+		
+		
+	}
 
-	// DELETE
+	// DELETE:
+	public boolean delete(Long id) {
+		this.repo.deleteById(id);
+		
+		return this.repo.existsById(id);
+	}
+	
+	
 
 }

@@ -48,7 +48,7 @@ public class TodoController {
 
 	@GetMapping("/readAll")
 	public ResponseEntity<List<TodoDTO>> readAll() {
-		return new ResponseEntity <List<TodoDTO>>(this.service.readAll(), HttpStatus.OK);
+		return new ResponseEntity<List<TodoDTO>>(this.service.readAll(), HttpStatus.OK);
 	}
 
 //	@GetMapping("/read/{id}")
@@ -57,7 +57,7 @@ public class TodoController {
 //	}
 
 	@GetMapping("/read/{id}")
-	public ResponseEntity <TodoDTO> readTodo(@PathVariable("id") Long id) {
+	public ResponseEntity<TodoDTO> readTodo(@PathVariable("id") Long id) {
 		return new ResponseEntity<TodoDTO>(this.service.readTodo(id), HttpStatus.ACCEPTED);
 	}
 
@@ -72,7 +72,7 @@ public class TodoController {
 //	}
 
 	@PostMapping("/create")
-	public ResponseEntity <TodoDTO> createTodo(@RequestBody Todo todo) {
+	public ResponseEntity<TodoDTO> createTodo(@RequestBody Todo todo) {
 		return new ResponseEntity<TodoDTO>(this.service.createTodo(todo), HttpStatus.CREATED);
 	}
 
@@ -85,8 +85,8 @@ public class TodoController {
 //	}
 
 	@PutMapping("/update/{id}")
-	public Todo updateTodo(@PathVariable("id") Long id, @RequestBody Todo todo) {
-		return null;
+	public ResponseEntity <TodoDTO> updateTodo(@PathVariable("id") Long id, @RequestBody Todo todo) {
+		return new ResponseEntity<TodoDTO>(this.service.updateTodo(id, todo), HttpStatus.ACCEPTED);
 	}
 
 	// DELETE
@@ -96,8 +96,10 @@ public class TodoController {
 //	}
 
 	@DeleteMapping("/delete/{id}")
-	public Todo deleteTodo(@PathVariable("id") Long id) {
-		return null;
+	public ResponseEntity<Object> deleteTodo(@PathVariable("id") Long id) {
+		return this.service.delete(id) ? 
+				new ResponseEntity<>(HttpStatus.NO_CONTENT): 
+				new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
 }
