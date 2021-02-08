@@ -1,0 +1,4 @@
+INSERT INTO TODO(DATE, DESCRIPTION, FINISH, TITLE) VALUES ('2020-09-11 15:45:15', 'complete project work', 'true', 'assignment');
+INSERT INTO TODO(DATE, DESCRIPTION, FINISH, TITLE) VALUES ('2020-12-21 12:15:15', 'Make Xmas dinner', 'false', 'Cook');
+INSERT INTO TODO(DATE, DESCRIPTION, FINISH, TITLE) VALUES ('2021-01-10 15:45:15', 'Vist London Family', 'true', 'Family');
+INSERT INTO TODO(DATE, DESCRIPTION, FINISH, TITLE) VALUES ('2020-09-25 09:45:15', 'Daily Run', 'true', 'Exercise');
