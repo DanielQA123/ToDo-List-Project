@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.qa.persistance.domain.SystemTodoDomain;
+import com.qa.persistance.domain.TodoSystemDomain;
 import com.qa.persistance.domain.Todo;
-import com.qa.persistance.dtos.SystemTodoDTO;
+import com.qa.persistance.dtos.TodoSystemDTO;
 import com.qa.persistance.dtos.TodoDTO;
 import com.qa.persistance.repos.TodoSystemRepo;
 import com.qa.persistance.repos.TodoRepo;
@@ -29,32 +29,32 @@ public class TodoSystemService {
 		this.mapper = mapper;
 	}
 
-	private SystemTodoDTO mapToDTO(SystemTodoDomain model) {
-		return this.mapper.map(model, SystemTodoDTO.class);
+	private TodoSystemDTO mapToDTO(TodoSystemDomain model) {
+		return this.mapper.map(model, TodoSystemDTO.class);
 	}
 
 	// GET => READ:
 
-	public List<SystemTodoDTO> readAll() {
-		List<SystemTodoDomain> systemList = this.repo.findAll();
-		List<SystemTodoDTO> systemListDTO = systemList.stream().map(this::mapToDTO).collect(Collectors.toList());
+	public List<TodoSystemDTO> readAll() {
+		List<TodoSystemDomain> systemList = this.repo.findAll();
+		List<TodoSystemDTO> systemListDTO = systemList.stream().map(this::mapToDTO).collect(Collectors.toList());
 		return systemListDTO;
 	}
 
-	public SystemTodoDTO readTodo(Long id) {
+	public TodoSystemDTO readTodo(Long id) {
 		return mapToDTO(this.repo.findById(id).orElseThrow());
 
 	}
 
 	// POST => CREATE:
 
-	public SystemTodoDTO createTodo(SystemTodoDomain todo) {
+	public TodoSystemDTO createTodo(TodoSystemDomain todo) {
 		return this.mapToDTO(this.repo.save(todo));
 	}
 
 	// PUT => UPDATE:
 
-	public SystemTodoDTO updateTodo(Long id, SystemTodoDomain newInfo) {
+	public TodoSystemDTO updateTodo(Long id, TodoSystemDomain newInfo) {
 		this.repo.findById(id).orElseThrow();
 
 		// my target

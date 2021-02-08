@@ -1,17 +1,17 @@
 package com.qa.persistance.dtos;
 
-public class SystemTodoDTO {
+public class TodoSystemDTO {
 	
 private Long id;
 	
 	private String objective;
 
-	public SystemTodoDTO() {
+	public TodoSystemDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public SystemTodoDTO(Long id, String objective) {
+	public TodoSystemDTO(Long id, String objective) {
 		super();
 		this.id = id;
 		this.objective = objective;

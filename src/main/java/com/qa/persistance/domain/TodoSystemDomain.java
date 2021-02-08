@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class SystemTodoDomain {
+public class TodoSystemDomain {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,12 +14,12 @@ public class SystemTodoDomain {
 	
 	private String objective;
 
-	public SystemTodoDomain() {
+	public TodoSystemDomain() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public SystemTodoDomain(Long id, String objective) {
+	public TodoSystemDomain(Long id, String objective) {
 		super();
 		this.id = id;
 		this.objective = objective;
