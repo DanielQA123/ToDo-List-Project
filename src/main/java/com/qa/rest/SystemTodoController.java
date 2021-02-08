@@ -17,16 +17,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.persistance.domain.Todo;
 import com.qa.persistance.dtos.TodoDTO;
+import com.qa.services.SystemTodoService;
 import com.qa.services.TodoService;
 
 @RestController
 @RequestMapping("/systemTodo")
 public class SystemTodoController {
 
-	private TodoService service;
+	private SystemTodoService service;
 
 	@Autowired
-	public SystemTodoController(TodoService service) {
+	public SystemTodoController(SystemTodoService service) {
 		super();
 		this.service = service;
 	}
