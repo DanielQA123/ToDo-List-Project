@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.qa.persistance.domain.Todo;
+import com.qa.persistance.domain.TodoDomain;
 import com.qa.persistance.dtos.TodoDTO;
 import com.qa.services.TodoService;
 
@@ -72,7 +72,7 @@ public class TodoController {
 //	}
 
 	@PostMapping("/create")
-	public ResponseEntity<TodoDTO> createTodo(@RequestBody Todo todo) {
+	public ResponseEntity<TodoDTO> createTodo(@RequestBody TodoDomain todo) {
 		return new ResponseEntity<TodoDTO>(this.service.createTodo(todo), HttpStatus.CREATED);
 	}
 
@@ -85,7 +85,7 @@ public class TodoController {
 //	}
 
 	@PutMapping("/update/{id}")
-	public ResponseEntity <TodoDTO> updateTodo(@PathVariable("id") Long id, @RequestBody Todo todo) {
+	public ResponseEntity <TodoDTO> updateTodo(@PathVariable("id") Long id, @RequestBody TodoDomain todo) {
 		return new ResponseEntity<TodoDTO>(this.service.updateTodo(id, todo), HttpStatus.ACCEPTED);
 	}
 

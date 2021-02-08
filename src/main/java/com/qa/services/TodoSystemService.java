@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.qa.persistance.domain.TodoSystemDomain;
-import com.qa.persistance.domain.Todo;
+import com.qa.persistance.domain.TodoDomain;
 import com.qa.persistance.dtos.TodoSystemDTO;
 import com.qa.persistance.dtos.TodoDTO;
 import com.qa.persistance.repos.TodoSystemRepo;

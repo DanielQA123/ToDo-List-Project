@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.qa.persistance.domain.Todo;
+import com.qa.persistance.domain.TodoDomain;
 import com.qa.persistance.domain.TodoSystemDomain;
 import com.qa.persistance.dtos.TodoDTO;
 import com.qa.persistance.dtos.TodoSystemDTO;

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.qa.persistance.domain.Todo;
+import com.qa.persistance.domain.TodoDomain;
 import com.qa.persistance.dtos.TodoDTO;
 import com.qa.persistance.repos.TodoRepo;
 
@@ -26,14 +26,14 @@ public class TodoService {
 		this.mapper = mapper;
 	}
 
-	private TodoDTO mapToDTO(Todo model) {
+	private TodoDTO mapToDTO(TodoDomain model) {
 		return this.mapper.map(model, TodoDTO.class);
 	}
 
 	// GET => READ:
 
 	public List<TodoDTO> readAll() {
-		List<Todo> dbList = this.repo.findAll();
+		List<TodoDomain> dbList = this.repo.findAll();
 		List<TodoDTO> resultList = dbList.stream().map(this::mapToDTO).collect(Collectors.toList());
 		return resultList;
 	}
@@ -45,13 +45,13 @@ public class TodoService {
 
 	// POST => CREATE:
 
-	public TodoDTO createTodo(Todo todo) {
+	public TodoDTO createTodo(TodoDomain todo) {
 		return this.mapToDTO(this.repo.save(todo));
 	}
 
 	// PUT => UPDATE:
 	
-	public TodoDTO updateTodo(Long id, Todo newInfo) {
+	public TodoDTO updateTodo(Long id, TodoDomain newInfo) {
 		this.repo.findById(id).orElseThrow();
 		
 		//my target

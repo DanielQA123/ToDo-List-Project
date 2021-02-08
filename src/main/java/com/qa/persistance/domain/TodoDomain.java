@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Todo {
+public class TodoDomain {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,12 +25,12 @@ public class Todo {
 	//Creating Constructor
 	//No Args: 
 	
-	public Todo() {
+	public TodoDomain() {
 		super();
 	}
 
 	//With Args: 
-	public Todo(Long id, String title, @Size(min = 15, message = "Enter Your Objectives") String description, Date date,
+	public TodoDomain(Long id, String title, @Size(min = 15, message = "Enter Your Objectives") String description, Date date,
 			boolean finish) {
 		super();
 		this.id = id;
