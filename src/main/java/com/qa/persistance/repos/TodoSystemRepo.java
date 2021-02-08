@@ -7,7 +7,7 @@ import com.qa.persistance.domain.SystemTodoDomain;
 import com.qa.persistance.domain.Todo;
 
 @Repository
-public interface SystemTodoRepo extends JpaRepository<SystemTodoDomain, Long> {
+public interface TodoSystemRepo extends JpaRepository<SystemTodoDomain, Long> {
 	
 	//CRUD -> H2 database 
 	

@@ -13,17 +13,17 @@ import com.qa.persistance.domain.SystemTodoDomain;
 import com.qa.persistance.domain.Todo;
 import com.qa.persistance.dtos.SystemTodoDTO;
 import com.qa.persistance.dtos.TodoDTO;
-import com.qa.persistance.repos.SystemTodoRepo;
+import com.qa.persistance.repos.TodoSystemRepo;
 import com.qa.persistance.repos.TodoRepo;
 
 @Service
-public class SystemTodoService {
+public class TodoSystemService {
 
-	private SystemTodoRepo repo;
+	private TodoSystemRepo repo;
 	private ModelMapper mapper;
 
 	@Autowired
-	public SystemTodoService(SystemTodoRepo repo, ModelMapper mapper) {
+	public TodoSystemService(TodoSystemRepo repo, ModelMapper mapper) {
 		super();
 		this.repo = repo;
 		this.mapper = mapper;
