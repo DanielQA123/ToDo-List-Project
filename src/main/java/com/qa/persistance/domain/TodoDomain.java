@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -14,34 +16,40 @@ public class TodoDomain {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	private String title; 
-	
+
+	@NotNull
+	private String title;
+
 //	@Size(min = 15, message="Enter Your Objectives")
+
+	@NotNull
 	private String description;
+
+	@NotNull
 	private Date date;
 	private boolean finish;
-	
-	//Creating Constructor
-	//No Args: 
-	
+
+	@ManyToOne
+	private TodoSystemDomain theTodo;
+
+	// Creating Constructor
+	// No Args:
+
 	public TodoDomain() {
 		super();
 	}
 
-	//With Args: 
-	public TodoDomain(Long id, String title, @Size(min = 15, message = "Enter Your Objectives") String description, Date date,
-			boolean finish) {
+	public TodoDomain(Long id, String title, String description, Date date, boolean finish,
+			TodoSystemDomain theTodo) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.date = date;
 		this.finish = finish;
+		this.theTodo = theTodo;
 	}
 
-	//Method => Getters and Setters
-	
 	public Long getId() {
 		return id;
 	}
@@ -81,14 +89,13 @@ public class TodoDomain {
 	public void setFinish(boolean finish) {
 		this.finish = finish;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	public TodoSystemDomain getTheTodo() {
+		return theTodo;
+	}
+
+	public void setTheTodo(TodoSystemDomain theTodo) {
+		this.theTodo = theTodo;
+	}
+
 }
