@@ -9,52 +9,52 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.qa.persistance.domain.SystemDomain;
+import com.qa.persistance.domain.SystemTodoDomain;
 import com.qa.persistance.domain.Todo;
-import com.qa.persistance.dtos.SystemDTO;
+import com.qa.persistance.dtos.SystemTodoDTO;
 import com.qa.persistance.dtos.TodoDTO;
-import com.qa.persistance.repos.SystemRepo;
+import com.qa.persistance.repos.SystemTodoRepo;
 import com.qa.persistance.repos.TodoRepo;
 
 @Service
-public class SystemService {
+public class SystemTodoService {
 
-	private SystemRepo repo;
+	private SystemTodoRepo repo;
 	private ModelMapper mapper;
 
 	@Autowired
-	public SystemService(SystemRepo repo, ModelMapper mapper) {
+	public SystemTodoService(SystemTodoRepo repo, ModelMapper mapper) {
 		super();
 		this.repo = repo;
 		this.mapper = mapper;
 	}
 
-	private SystemDTO mapToDTO(SystemDomain model) {
-		return this.mapper.map(model, SystemDTO.class);
+	private SystemTodoDTO mapToDTO(SystemTodoDomain model) {
+		return this.mapper.map(model, SystemTodoDTO.class);
 	}
 
 	// GET => READ:
 
-	public List<SystemDTO> readAll() {
-		List<SystemDomain> systemList = this.repo.findAll();
-		List<SystemDTO> systemListDTO = systemList.stream().map(this::mapToDTO).collect(Collectors.toList());
+	public List<SystemTodoDTO> readAll() {
+		List<SystemTodoDomain> systemList = this.repo.findAll();
+		List<SystemTodoDTO> systemListDTO = systemList.stream().map(this::mapToDTO).collect(Collectors.toList());
 		return systemListDTO;
 	}
 
-	public SystemDTO readTodo(Long id) {
+	public SystemTodoDTO readTodo(Long id) {
 		return mapToDTO(this.repo.findById(id).orElseThrow());
 
 	}
 
 	// POST => CREATE:
 
-	public SystemDTO createTodo(SystemDomain todo) {
+	public SystemTodoDTO createTodo(SystemTodoDomain todo) {
 		return this.mapToDTO(this.repo.save(todo));
 	}
 
 	// PUT => UPDATE:
 
-	public SystemDTO updateTodo(Long id, SystemDomain newInfo) {
+	public SystemTodoDTO updateTodo(Long id, SystemTodoDomain newInfo) {
 		this.repo.findById(id).orElseThrow();
 
 		// my target
