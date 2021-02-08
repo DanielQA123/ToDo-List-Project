@@ -1,5 +1,7 @@
 package com.qa.persistance.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,16 +16,18 @@ public class TodoSystemDomain {
 	private Long id;
 	
 	private String objective;
+	
+	private List<TodoDomain> todoList;
 
 	public TodoSystemDomain() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public TodoSystemDomain(Long id, String objective) {
+	public TodoSystemDomain(Long id, String objective, List<TodoDomain> todoList) {
 		super();
 		this.id = id;
 		this.objective = objective;
+		this.todoList = todoList;
 	}
 
 	public Long getId() {
@@ -41,11 +45,17 @@ public class TodoSystemDomain {
 	public void setObjective(String objective) {
 		this.objective = objective;
 	}
+
+	public List<TodoDomain> getTodoList() {
+		return todoList;
+	}
+
+	public void setTodoList(List<TodoDomain> todoList) {
+		this.todoList = todoList;
+	}
 	
 	
-	
-	
-	
+
 	
 	
 	
