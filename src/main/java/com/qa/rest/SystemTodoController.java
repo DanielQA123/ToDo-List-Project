@@ -20,13 +20,13 @@ import com.qa.persistance.dtos.TodoDTO;
 import com.qa.services.TodoService;
 
 @RestController
-@RequestMapping("/todo")
-public class SystemController {
+@RequestMapping("/systemTodo")
+public class SystemTodoController {
 
 	private TodoService service;
 
 	@Autowired
-	public SystemController(TodoService service) {
+	public SystemTodoController(TodoService service) {
 		super();
 		this.service = service;
 	}
