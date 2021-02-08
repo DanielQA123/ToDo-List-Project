@@ -23,7 +23,7 @@ public class TodoSystemDomain {
 	@NotNull
 	private String objective;
 	
-	@OneToMany(mappedBy = "", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "theTodo", fetch = FetchType.EAGER)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private List<TodoDomain> todoList;
 

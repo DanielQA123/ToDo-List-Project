@@ -1,20 +1,25 @@
 package com.qa.persistance.dtos;
 
+import java.util.List;
+
 public class TodoSystemDTO {
 	
     private Long id;
 	
 	private String objective;
 
+	private List<TodoDTO> todoList;
+	
 	public TodoSystemDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public TodoSystemDTO(Long id, String objective) {
+	public TodoSystemDTO(Long id, String objective, List<TodoDTO> todoList) {
 		super();
 		this.id = id;
 		this.objective = objective;
+		this.todoList = todoList;
 	}
 
 	public Long getId() {
@@ -33,4 +38,16 @@ public class TodoSystemDTO {
 		this.objective = objective;
 	}
 
+	public List<TodoDTO> getTodoList() {
+		return todoList;
+	}
+
+	public void setTodoList(List<TodoDTO> todoList) {
+		this.todoList = todoList;
+	}
+	
+	
 }
+
+
+	
