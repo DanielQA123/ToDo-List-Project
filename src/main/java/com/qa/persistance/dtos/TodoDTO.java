@@ -1,37 +1,22 @@
-package com.qa.persistance.domain;
+package com.qa.persistance.dtos;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.Size;
+public class TodoDTO {
 
-@Entity
-public class Todo {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	private String title; 
-	
-//	@Size(min = 15, message="Enter Your Objectives")
+
+	private String title;
 	private String description;
 	private Date date;
 	private boolean finish;
-	
-	//Creating Constructor
-	//No Args: 
-	
-	public Todo() {
+
+	public TodoDTO() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	//With Args: 
-	public Todo(Long id, String title, @Size(min = 15, message = "Enter Your Objectives") String description, Date date,
-			boolean finish) {
+	public TodoDTO(Long id, String title, String description, Date date, boolean finish) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -40,8 +25,6 @@ public class Todo {
 		this.finish = finish;
 	}
 
-	//Method => Getters and Setters
-	
 	public Long getId() {
 		return id;
 	}
@@ -81,14 +64,5 @@ public class Todo {
 	public void setFinish(boolean finish) {
 		this.finish = finish;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
