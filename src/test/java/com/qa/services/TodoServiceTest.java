@@ -1,6 +1,7 @@
 package com.qa.services;
 
 import java.sql.Date;
+import java.util.List;
 import java.util.Optional;
 
 import org.assertj.core.api.Assertions;
@@ -35,11 +36,14 @@ public class TodoServiceTest {
 		Mockito.when(this.mockedRepo.save(Mockito.any(TodoDomain.class))).thenReturn(testTodo);
 		TodoDTO result = this.service.createTodo(testTodo);
 		Assertions.assertThat(result).isEqualTo(this.mockedMapper.map(testTodo, TodoDTO.class));
+		Assertions.assertThat(result).usingRecursiveComparison();
+		Mockito.verify(this.mockedRepo, Mockito.times(1)).save(Mockito.any(TodoDomain.class));
 	}
 
 	@Test
 	public void readAll() {
-
+		List<TodoDTO> result = this.service.readAll();
+		Mockito.verify(this.mockedRepo, Mockito.times(1)).findAll();
 	}
 
 	@Test
@@ -50,17 +54,29 @@ public class TodoServiceTest {
 		Mockito.when(this.mockedRepo.findById(testTodo.getId())).thenReturn(Optional.of(testTodo));
 		TodoDTO result = this.service.readTodo(1L);
 		Assertions.assertThat(result).isEqualTo(testDTO);
-
+		Mockito.verify(this.mockedRepo, Mockito.times(1)).findById(1L);
 	}
 
 	@Test
 	public void updateTodo() {
-
+		
+		TodoDomain testTodo = new TodoDomain(1L, "Assignment", "complete project work", Date.valueOf("2020-12-11"),
+				true, null);
+		TodoDTO testDTO = this.mockedMapper.map(testTodo, TodoDTO.class);
+		TodoDTO result = this.service.updateTodo(1L, testTodo);
+		
+		Mockito.when(this.mockedRepo.findById(testTodo.getId())).thenReturn(Optional.of(testTodo));
+		Mockito.when(this.mockedRepo.save(Mockito.any(TodoDomain.class))).thenReturn(testTodo);
+		Assertions.assertThat(result).isEqualTo(testDTO);
+		Mockito.verify(this.mockedRepo, Mockito.times(1)).save(Mockito.any(TodoDomain.class));
+		Mockito.verify(this.mockedRepo, Mockito.times(1)).findById(1L);
+		
 	}
 
 	@Test
 	public void delete() {
-
+		boolean result = this.service.delete(1L);
+		Mockito.verify(this.mockedRepo, Mockito.times(1)).deleteById(1L);
 	}
 
 }
