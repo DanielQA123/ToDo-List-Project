@@ -1,6 +1,7 @@
 package com.qa.services;
 
 import java.sql.Date;
+import java.util.Optional;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -46,9 +47,7 @@ public class TodoServiceTest {
 		TodoDomain testTodo = new TodoDomain(1L, "Assignment", "complete project work", Date.valueOf("2020-12-11"),
 				true, null);
 		TodoDTO testDTO = this.mockedMapper.map(testTodo, TodoDTO.class);
-		
-		Mockito.when(this.service.readTodo(testTodo.getId())).thenReturn(testDTO);
-		
+		Mockito.when(this.mockedRepo.findById(testTodo.getId())).thenReturn(Optional.of(testTodo));
 		TodoDTO result = this.service.readTodo(1L);
 		Assertions.assertThat(result).isEqualTo(testDTO);
 
