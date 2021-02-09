@@ -29,13 +29,10 @@ public class TodoServiceTest {
 	// MY CRUD TEST
 	@Test
 	public void createTodo() {
-	
-		TodoDomain testTodo = new TodoDomain(1L,"Assignment","complete project work", Date.valueOf("2020-12-11"), true, null);
-		
+		TodoDomain testTodo = new TodoDomain(1L, "Assignment", "complete project work", Date.valueOf("2020-12-11"),
+				true, null);
 		Mockito.when(this.mockedRepo.save(Mockito.any(TodoDomain.class))).thenReturn(testTodo);
-
 		TodoDTO result = this.service.createTodo(testTodo);
-		
 		Assertions.assertThat(result).isEqualTo(this.mockedMapper.map(testTodo, TodoDTO.class));
 	}
 
@@ -46,6 +43,14 @@ public class TodoServiceTest {
 
 	@Test
 	public void readTodo() {
+		TodoDomain testTodo = new TodoDomain(1L, "Assignment", "complete project work", Date.valueOf("2020-12-11"),
+				true, null);
+		TodoDTO testDTO = this.mockedMapper.map(testTodo, TodoDTO.class);
+		
+		Mockito.when(this.service.readTodo(testTodo.getId())).thenReturn(testDTO);
+		
+		TodoDTO result = this.service.readTodo(1L);
+		Assertions.assertThat(result).isEqualTo(testDTO);
 
 	}
 
