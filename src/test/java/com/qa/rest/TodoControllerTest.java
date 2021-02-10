@@ -82,10 +82,14 @@ public class TodoControllerTest {
 				true, null);
 		
 		// Rules:
-		Mockito.when(null)
-		
+		Mockito.when(this.service.delete(1L)).thenReturn(true);
+
 		// Action:
+		ResponseEntity<Object> result = this.controller.deleteTodo(1L);
+		
 		// Assertions:
+		Assertions.assertThat(result).isEqualTo(new ResponseEntity<Object>(HttpStatus.NO_CONTENT));
+		Assertions.assertThat(result).isEqualTo(new ResponseEntity<Object>(HttpStatus.INTERNAL_SERVER_ERROR));
 	}
 
 }
