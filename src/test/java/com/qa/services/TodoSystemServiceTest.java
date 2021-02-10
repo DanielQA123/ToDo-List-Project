@@ -92,20 +92,39 @@ public class TodoSystemServiceTest {
 	public void updateTodo() {
 
 		// RESOURCES:
+		TodoSystemDomain testSystem = new TodoSystemDomain(1L, "Complete This Month", null);
+		TodoSystemDTO testDTO = new TodoSystemDTO(1L, "Complete This Week", null);
+		
 		// RULES:
+		Mockito.when(this.mockedRepo.findById(1L)).thenReturn(Optional.of(testSystem));
+		Mockito.when(this.mockedRepo.save(testSystem)).thenReturn(testSystem);
+		Mockito.when(this.mockedMapper.map(testSystem, TodoSystemDTO.class)).thenReturn(testDTO);
+		
 		// ACTION:
+		TodoSystemDTO result = this.service.updateTodo(1l, testSystem);
+		
 		// ASSERTION:
+		Assertions.assertThat(result).isEqualTo(testDTO);
+		
+		//Assertions.assertThat(result).isEqualTo(this.mockedMapper.map(testDTO, null));
+		Mockito.verify(this.mockedRepo, Mockito.times(1)).save(Mockito.any(TodoSystemDomain.class));
+		Mockito.verify(this.mockedRepo, Mockito.times(1)).findById(1L);
 	}
 
 	@Test
 	public void delete() {
 
 		// RESOURCES:
+		TodoSystemDomain testSystem = new TodoSystemDomain(1L, "Complete This Month", null);
+		
 		// RULES:
+		Mockito.when(this.mockedRepo.findById(1L)).thenReturn(Optional.of(testSystem));
+		Mockito.when(this.mockedRepo.existsById(1L)).thenReturn(true);
+		
 		// ACTION:
+		this.service.delete(1L);
+		
 		// ASSERTION:
-
-		boolean result = this.service.delete(1L);
 		Mockito.verify(this.mockedRepo, Mockito.times(1)).deleteById(1L);
 	}
 

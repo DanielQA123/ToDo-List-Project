@@ -113,8 +113,7 @@ public class TodoServiceTest {
 
 		// ASSERTIONS:
 		Assertions.assertThat(result).isEqualTo(testDTO);
-
-//		Mockito.verify(this.mockedMapper, Mockito.times(3)).map(savedTodo, Mockito.any(TodoDTO.class));
+		//Mockito.verify(this.mockedMapper, Mockito.times(1)).map(result, Mockito.any(TodoDTO.class));
 		Mockito.verify(this.mockedRepo, Mockito.times(1)).save(Mockito.any(TodoDomain.class));
 		Mockito.verify(this.mockedRepo, Mockito.times(1)).findById(1L);
 	}
