@@ -1,18 +1,15 @@
 package com.qa.services;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import com.qa.persistance.domain.TodoDomain;
 import com.qa.persistance.domain.TodoSystemDomain;
 import com.qa.persistance.dtos.TodoSystemDTO;
 import com.qa.persistance.repos.TodoSystemRepo;
@@ -50,7 +47,7 @@ public class TodoSystemServiceTest {
 		TodoSystemDTO result = this.service.readTodo(1L);
 		TodoSystemDTO testDTO = this.mockedMapper.map(testSystem, TodoSystemDTO.class);
 		Assertions.assertThat(result).isEqualTo(testDTO);
-		Mockito.verify(this.mockedRepo, Mockito.times(1)).save(Mockito.any(TodoSystemDomain.class));
+		Mockito.verify(this.mockedRepo, Mockito.times(1)).findById(1L);
 	
 	}
 
@@ -60,6 +57,8 @@ public class TodoSystemServiceTest {
 
 	@Test
 	public void delete() {
+		boolean result = this.service.delete(1L);
+		Mockito.verify(this.mockedRepo, Mockito.times(1)).deleteById(1L);
 	}
 
 }
