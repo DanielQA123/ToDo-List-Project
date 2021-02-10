@@ -1,5 +1,6 @@
 package com.qa.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.assertj.core.api.Assertions;
@@ -28,35 +29,84 @@ public class TodoSystemServiceTest {
 
 	@Test
 	public void createTodo() {
+
+		// RESOURCES:
 		TodoSystemDomain testSystem = new TodoSystemDomain(1L, "Complete This Month", null);
+		
+		// RULES:
 		Mockito.when(this.mockedRepo.save(Mockito.any(TodoSystemDomain.class))).thenReturn(testSystem);
+		
+		// ACTION:
 		TodoSystemDTO result = this.service.createTodo(testSystem);
+		
+		// ASSERTIONS:
 		Assertions.assertThat(result).isEqualTo(this.mockedMapper.map(testSystem, TodoSystemDTO.class));
 		Mockito.verify(this.mockedRepo, Mockito.times(1)).save(Mockito.any(TodoSystemDomain.class));
 	}
 
 	@Test
 	public void readAll() {
+
+		// RESOURCES:
+		TodoSystemDomain testSystem = new TodoSystemDomain(1L, "Complete This Month", null);
+		TodoSystemDomain testSystem2 = new TodoSystemDomain(2L, "Complete This Week", null);
+		
+		TodoSystemDTO testSystemDTO = new TodoSystemDTO(2L, "Complete This Week", null);
+		TodoSystemDTO testSystemDTO2 = new TodoSystemDTO(2L, "Complete This Week", null);
+		
+		List<TodoSystemDomain> TodoSystem_List = List.of(testSystem, testSystem2);
+		List<TodoSystemDTO> TodoSystemDTO_List = List.of(testSystemDTO, testSystemDTO2);
+		
+		// RULES:
+		Mockito.when(this.mockedRepo.findAll()).thenReturn(TodoSystem_List);
+		Mockito.when(this.mockedMapper.map(TodoSystemDTO_List, TodoSystemDTO.class)).thenReturn(testSystemDTO);
+		
+		// ACTION:
+		List<TodoSystemDTO> result = this.service.readAll();
+		
+		// ASSERTION:
+		
+		
+		
 	}
 
 	@Test
 	public void readTodo() {
-	
+
+		// RESOURCES:
 		TodoSystemDomain testSystem = new TodoSystemDomain(1L, "Complete This Month", null);
+		
+		// RULES:
 		Mockito.when(this.mockedRepo.findById(testSystem.getId())).thenReturn(Optional.of(testSystem));
+		
+		// ACTION:
 		TodoSystemDTO result = this.service.readTodo(1L);
 		TodoSystemDTO testDTO = this.mockedMapper.map(testSystem, TodoSystemDTO.class);
+		
+		// ASSERTION:
 		Assertions.assertThat(result).isEqualTo(testDTO);
 		Mockito.verify(this.mockedRepo, Mockito.times(1)).findById(1L);
-	
+
+
 	}
 
 	@Test
 	public void updateTodo() {
+
+		// RESOURCES:
+		// RULES:
+		// ACTION:
+		// ASSERTION:
 	}
 
 	@Test
 	public void delete() {
+
+		// RESOURCES:
+		// RULES:
+		// ACTION:
+		// ASSERTION:
+
 		boolean result = this.service.delete(1L);
 		Mockito.verify(this.mockedRepo, Mockito.times(1)).deleteById(1L);
 	}

@@ -61,12 +61,16 @@ public class TodoServiceTest {
 		List<TodoDTO> TodoDTO_List = List.of(testDTO, testDTO2);
 				
 		// RULES:
-		
+		Mockito.when(this.mockedRepo.findAll()).thenReturn(Todo_List);
+		Mockito.when(this.mockedMapper.map(testTodo, TodoDTO.class)).thenReturn(testDTO);
 
 		// ACTION:
-
-		// ASSERTIONS:
 		List<TodoDTO> result = this.service.readAll();
+		
+		// ASSERTIONS:
+		
+		Assertions.assertThat(result).isNotNull();
+	   //Assertions.assertThat(result).usingRecursiveComparison().isEqualTo(TodoDTO_List);
 		Mockito.verify(this.mockedRepo, Mockito.times(1)).findAll();
 	}
 
