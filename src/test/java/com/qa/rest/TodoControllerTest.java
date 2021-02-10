@@ -26,21 +26,20 @@ public class TodoControllerTest {
 
 	@Test
 	public void createTodo() {
-		
+
 		// Resources:
 		TodoDomain testTodo = new TodoDomain(1L, "Assignment", "complete project work", Date.valueOf("2020-12-11"),
-		true, null);
-		TodoDTO testDTO = new TodoDTO(1L, "Assignment", "complete project work", Date.valueOf("2020-12-11"),
-				true);
-		
+				true, null);
+		TodoDTO testDTO = new TodoDTO(1L, "Assignment", "complete project work", Date.valueOf("2020-12-11"), true);
+
 		// Rules:
 		Mockito.when(this.service.createTodo(testTodo)).thenReturn(testDTO);
-		
+
 		// Action:
 		ResponseEntity<TodoDTO> result = this.controller.createTodo(testTodo);
-		
+
 		// Assertions:
-		Assertions.assertThat(result).isEqualTo(new ResponseEntity<TodoDTO>(testDTO,HttpStatus.CREATED));
+		Assertions.assertThat(result).isEqualTo(new ResponseEntity<TodoDTO>(testDTO, HttpStatus.CREATED));
 	}
 
 	@Test
@@ -51,15 +50,24 @@ public class TodoControllerTest {
 		// Assertions:
 
 	}
-	
+
 	@Test
 	public void readTodo() {
 		// Resources:
+		TodoDomain testTodo = new TodoDomain(1L, "Assignment", "complete project work", Date.valueOf("2020-12-11"),
+				true, null);
+		TodoDTO testDTO = new TodoDTO(1L, "Assignment", "complete project work", Date.valueOf("2020-12-11"), true);
+
 		// Rules:
+		Mockito.when(this.service.readTodo(1L)).thenReturn(testDTO);
+		
 		// Action:
-		// Assertions:
-	}
+		ResponseEntity<TodoDTO> result = this.controller.readTodo(1L);
 	
+		// Assertions:
+		Assertions.assertThat(result).isEqualTo(new ResponseEntity<TodoDTO>(testDTO, HttpStatus.ACCEPTED));
+	}
+
 	@Test
 	public void updateTodo() {
 		// Resources:
@@ -68,12 +76,16 @@ public class TodoControllerTest {
 		// Assertions:
 	}
 
-
 	public void deleteTodo() {
 		// Resources:
+		TodoDomain testTodo = new TodoDomain(1L, "Assignment", "complete project work", Date.valueOf("2020-12-11"),
+				true, null);
+		
 		// Rules:
+		Mockito.when(null)
+		
 		// Action:
 		// Assertions:
 	}
-	
+
 }
