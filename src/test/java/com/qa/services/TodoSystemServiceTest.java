@@ -65,9 +65,8 @@ public class TodoSystemServiceTest {
 		List<TodoSystemDTO> result = this.service.readAll();
 		
 		// ASSERTION:
-		
-		
-		
+		Assertions.assertThat(result).isNotNull();
+		Mockito.verify(this.mockedRepo, Mockito.times(1)).findAll();
 	}
 
 	@Test
@@ -86,8 +85,7 @@ public class TodoSystemServiceTest {
 		// ASSERTION:
 		Assertions.assertThat(result).isEqualTo(testDTO);
 		Mockito.verify(this.mockedRepo, Mockito.times(1)).findById(1L);
-
-
+		
 	}
 
 	@Test
