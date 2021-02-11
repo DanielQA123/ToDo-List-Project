@@ -1,6 +1,6 @@
 package com.qa.persistance.dtos;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class TodoDTO {
 
