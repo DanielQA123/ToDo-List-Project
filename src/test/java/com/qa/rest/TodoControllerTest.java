@@ -1,6 +1,7 @@
 package com.qa.rest;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -45,10 +46,17 @@ public class TodoControllerTest {
 	@Test
 	public void readAll() {
 		// Resources:
+		TodoDTO testDTO = new TodoDTO(1L, "Assignment", "complete project work", Date.valueOf("2020-12-11"), true);
+		List<TodoDTO> listDTO = List.of(testDTO);
+		
 		// Rules:
+		Mockito.when(this.service.readAll()).thenReturn(listDTO);
+		
 		// Action:
+		ResponseEntity<List<TodoDTO>> result = this.controller.readAll();
+		
 		// Assertions:
-
+		Assertions.assertThat(result).isEqualTo(new ResponseEntity<List<TodoDTO>>(listDTO, HttpStatus.OK));
 	}
 
 	@Test
@@ -71,9 +79,13 @@ public class TodoControllerTest {
 	@Test
 	public void updateTodo() {
 		// Resources:
+		
 		// Rules:
+		
 		// Action:
+		
 		// Assertions:
+		
 	}
 
 	public void deleteTodo() {
@@ -83,13 +95,14 @@ public class TodoControllerTest {
 		
 		// Rules:
 		Mockito.when(this.service.delete(1L)).thenReturn(true);
+		Mockito.when(this.service.delete(1L)).thenReturn(false);
 
 		// Action:
 		ResponseEntity<Object> result = this.controller.deleteTodo(1L);
 		
 		// Assertions:
-		Assertions.assertThat(result).isEqualTo(new ResponseEntity<Object>(HttpStatus.NO_CONTENT));
-		Assertions.assertThat(result).isEqualTo(new ResponseEntity<Object>(HttpStatus.INTERNAL_SERVER_ERROR));
+		Assertions.assertThat(result).isEqualTo(new ResponseEntity<>(HttpStatus.NO_CONTENT));
+		Assertions.assertThat(result).isEqualTo(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
 	}
 
 }
