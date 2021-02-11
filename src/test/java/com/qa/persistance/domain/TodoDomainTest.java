@@ -57,32 +57,45 @@ public class TodoDomainTest {
 
 	@Test
 	public void getDateTest() {
-		
+		testDomain.getDate();
+		assertEquals(Date.valueOf("2020-12-11"), testDomain.getDate());
 	}
 
 	@Test
 	public void setDateTest() {
+		Date date = testDomain.getDate();
+		testDomain.setDate(Date.valueOf("2020-12-11"));
+		assertEquals(Date.valueOf("2020-12-11"), date);
 	}
 
 	@Test
 	public void isFinishTest() {
+		testDomain.isFinish();
+		assertEquals(false, testDomain.isFinish());
 	}
 
 	@Test
 	public void setFinishTest() {
+		boolean finish = testDomain.isFinish();
+		testDomain.setFinish(true);
+		assertEquals(false, finish);
 	}
 
 	@Test
 	public void getTheTodoTest() {
+		testDomain.getTheTodo();
+		assertEquals(null, testDomain.getTheTodo());
+		
 	}
 
 	@Test
 	public void setTheTodoTest() {
+		testDomain.setTheTodo(null);
 	}
 	
 	@Test
 	public void emptyConstructorTest() {
-		
+		TodoDomain testDomain = new TodoDomain();
 	}
 
 }
