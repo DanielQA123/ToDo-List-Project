@@ -45,16 +45,17 @@ public class TodoSystemDTOTest {
 
 	@Test
 	public void getTodoList() {
-		
+		testDTO.getTodoList();
 	}
 
 	@Test
 	public void setTodoList() {
-	
+		testDTO.setTodoList(null);
 	}
 	
 	@Test
 	public void emptyConstructorTest() {
+		TodoSystemDTO testDTO = new TodoSystemDTO();
 		
 	}
 	
