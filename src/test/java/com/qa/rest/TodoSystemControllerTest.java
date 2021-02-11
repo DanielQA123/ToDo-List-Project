@@ -12,7 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.qa.persistance.domain.TodoSystemDomain;
-import com.qa.persistance.dtos.TodoDTO;
 import com.qa.persistance.dtos.TodoSystemDTO;
 import com.qa.services.TodoSystemService;
 
@@ -80,25 +79,50 @@ public class TodoSystemControllerTest {
 	@Test
 	public void updateTodo() {
 		// RESOURCES:
+		TodoSystemDomain testSystem_update = new TodoSystemDomain(1L, "Complete This Month", null);
+		TodoSystemDTO testDTO_update = new TodoSystemDTO(1L, "Complete This Month", null);
+		
 		// RULES:
+		Mockito.when(this.service.updateTodo(1L, testSystem_update)).thenReturn(testDTO_update);
+		
 		// ACTION:
+		ResponseEntity<TodoSystemDTO> result = this.controller.updateTodo(1L, testSystem_update);
+		
 		// ASSERTIONS:
+		Assertions.assertThat(result).isEqualTo(new ResponseEntity<TodoSystemDTO>(testDTO_update, HttpStatus.ACCEPTED));
+		Mockito.verify(this.service, Mockito.times(1)).updateTodo(1L, testSystem_update);
 	}
 
 	@Test
 	public void deleteSuccessful() {
 		// RESOURCES:
+		TodoSystemDomain testSystem = new TodoSystemDomain(1L, "Complete This Month", null);
+		
 		// RULES:
+		Mockito.when(this.service.delete(1L)).thenReturn(true);
+		
 		// ACTION:
+		ResponseEntity<Object> result = this.controller.delete(1L);
+		
 		// ASSERTIONS:
+		Assertions.assertThat(result).isEqualTo(new ResponseEntity<>(HttpStatus.NO_CONTENT));
+		Mockito.verify(this.service, Mockito.times(1)).delete(1L);
 	}
 
 	@Test
 	public void deleteUnsuccessful() {
 		// RESOURCES:
+		TodoSystemDomain testSystem = new TodoSystemDomain(1L, "Complete This Month", null);
+		
 		// RULES:
+		Mockito.when(this.service.delete(1L)).thenReturn(false);
+		
 		// ACTION:
+		ResponseEntity<Object> result = this.controller.delete(1L);
+		
 		// ASSERTIONS:
+		Assertions.assertThat(result).isEqualTo(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+		Mockito.verify(this.service, Mockito.times(1)).delete(1L);
 	}
 
 }
