@@ -41,6 +41,7 @@ public class TodoControllerTest {
 
 		// Assertions:
 		Assertions.assertThat(result).isEqualTo(new ResponseEntity<TodoDTO>(testDTO, HttpStatus.CREATED));
+		Mockito.verify(this.service, Mockito.times(1)).createTodo(testTodo);
 	}
 
 	@Test
@@ -57,6 +58,7 @@ public class TodoControllerTest {
 		
 		// Assertions:
 		Assertions.assertThat(result).isEqualTo(new ResponseEntity<List<TodoDTO>>(listDTO, HttpStatus.OK));
+		Mockito.verify(this.service, Mockito.times(1)).readAll();
 	}
 
 	@Test
@@ -74,35 +76,60 @@ public class TodoControllerTest {
 	
 		// Assertions:
 		Assertions.assertThat(result).isEqualTo(new ResponseEntity<TodoDTO>(testDTO, HttpStatus.ACCEPTED));
+		Mockito.verify(this.service, Mockito.times(1)).readTodo(1L);
 	}
 
 	@Test
 	public void updateTodo() {
 		// Resources:
-		
+		TodoDomain testTodo_update = new TodoDomain(1L, "Exercise", "complete run", Date.valueOf("2020-12-11"),
+				true, null);
+		TodoDTO testDTO_update = new TodoDTO(1L, "Assignment", "complete project work", Date.valueOf("2020-12-11"), true);
+
 		// Rules:
+		Mockito.when(this.service.updateTodo(1L, testTodo_update)).thenReturn(testDTO_update);
 		
 		// Action:
+		ResponseEntity<TodoDTO> result = this.controller.updateTodo(1L, testTodo_update);
 		
 		// Assertions:
+		Assertions.assertThat(result).isEqualTo(new ResponseEntity<TodoDTO>(testDTO_update, HttpStatus.ACCEPTED));
+		Mockito.verify(this.service, Mockito.times(1)).updateTodo(1L, testTodo_update);
 		
 	}
 
-	public void deleteTodo() {
+	@Test
+	public void deleteTodoSuccessful() {
 		// Resources:
 		TodoDomain testTodo = new TodoDomain(1L, "Assignment", "complete project work", Date.valueOf("2020-12-11"),
 				true, null);
 		
 		// Rules:
 		Mockito.when(this.service.delete(1L)).thenReturn(true);
-		Mockito.when(this.service.delete(1L)).thenReturn(false);
 
 		// Action:
 		ResponseEntity<Object> result = this.controller.deleteTodo(1L);
 		
 		// Assertions:
 		Assertions.assertThat(result).isEqualTo(new ResponseEntity<>(HttpStatus.NO_CONTENT));
+		Mockito.verify(this.service, Mockito.times(1)).delete(1L);
+	}
+	
+	@Test
+	public void deleteTodoUnsuccessful() {
+		// Resources:
+		TodoDomain testTodo = new TodoDomain(1L, "Assignment", "complete project work", Date.valueOf("2020-12-11"),
+				true, null);
+		
+		// Rules:
+		Mockito.when(this.service.delete(1L)).thenReturn(false);
+
+		// Action:
+		ResponseEntity<Object> result = this.controller.deleteTodo(1L);
+		
+		// Assertions:
 		Assertions.assertThat(result).isEqualTo(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+		Mockito.verify(this.service, Mockito.times(1)).delete(1L);
 	}
 
 }
