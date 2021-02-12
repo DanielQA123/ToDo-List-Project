@@ -50,6 +50,16 @@ public class TodoDomain {
 		this.theTodo = theTodo;
 	}
 
+	public TodoDomain(String title, String description, Date date, boolean finish,
+			TodoSystemDomain theTodo) {
+		super();
+		this.title = title;
+		this.description = description;
+		this.date = date;
+		this.finish = finish;
+		this.theTodo = theTodo;
+	}
+
 	public Long getId() {
 		return id;
 	}

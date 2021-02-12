@@ -49,7 +49,7 @@ public class TodoControllerIntegrationTest {
 	public void createTodo() throws Exception {
 
 		//Resources:
-		TodoDomain contentBody = new TodoDomain(5L, "Shopping", "Buy Pjs", Date.valueOf("2021-01-11"),
+		TodoDomain contentBody = new TodoDomain("Shopping", "Buy Pjs", Date.valueOf("2021-01-11"),
 				true, null);
 		TodoDTO expectedResult = mapToDTO(contentBody);
 
