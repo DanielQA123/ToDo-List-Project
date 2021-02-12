@@ -26,7 +26,8 @@ import com.qa.persistance.dtos.TodoDTO;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-@Sql(scripts = { "classpath:data-test.sql" }, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+@Sql(scripts = { "classpath:schema-test.sql",
+		"classpath:data-test.sql" }, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
 @ActiveProfiles(profiles = "test")
 public class TodoControllerIntegrationTest {
 
@@ -48,19 +49,20 @@ public class TodoControllerIntegrationTest {
 	@Test
 	public void createTodo() throws Exception {
 
-		//Resources:
-		TodoDomain contentBody = new TodoDomain("Shopping", "Buy Pjs", Date.valueOf("2021-01-11"),
-				true, null);
+		// Resources:
+		TodoDomain contentBody = new TodoDomain("Shopping", "Buy Pjs", Date.valueOf("2021-01-11"), true, null);
 		TodoDTO expectedResult = mapToDTO(contentBody);
+		expectedResult.setId(6L);
 
 		// Set Up request:
-		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.POST,
-				"http://localhost:8080/todo/create").contentType(MediaType.APPLICATION_JSON).content(jsonifier.writeValueAsBytes(contentBody)).accept(MediaType.APPLICATION_JSON);
+		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
+				.request(HttpMethod.POST, "http://localhost:8080/todo/create").contentType(MediaType.APPLICATION_JSON)
+				.content(jsonifier.writeValueAsBytes(contentBody)).accept(MediaType.APPLICATION_JSON);
 
 		// Set up expectation:
 		ResultMatcher matchStatus = MockMvcResultMatchers.status().isCreated();
 		ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(expectedResult));
-	
+
 		// perform/action
 		this.mock.perform(mockRequest).andExpect(matchStatus);
 		this.mock.perform(mockRequest).andExpect(matchContent);
@@ -73,7 +75,7 @@ public class TodoControllerIntegrationTest {
 
 	@Test
 	public void readTodo() throws Exception {
-		TodoDTO expectedResult = new TodoDTO(1L, "Assignment", "complete project work", Date.valueOf("2020-12-11"),
+		TodoDTO expectedResult = new TodoDTO(1L,"Assignment", "complete project work", Date.valueOf("2020-12-11"),
 				true);
 
 		// Set Up request:
@@ -90,10 +92,55 @@ public class TodoControllerIntegrationTest {
 
 	@Test
 	public void updateTodo() throws Exception {
+
+//		// Resources:
+//		TodoDomain contentBody = new TodoDomain("The dog", "Long walk", Date.valueOf("2021-02-01"), true, null);
+//		TodoDTO expectedResult = mapToDTO(contentBody);
+//		//expectedResult.getId();
+//
+//		// Set Up request:
+//		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
+//				.request(HttpMethod.PUT, "http://localhost:8080/todo/update/" + 6).contentType(MediaType.APPLICATION_JSON)
+//				.content(jsonifier.writeValueAsBytes(contentBody)).accept(MediaType.APPLICATION_JSON);
+//
+//		// Set up expectation:
+//		ResultMatcher matchStatus = MockMvcResultMatchers.status().isAccepted();
+//		ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(expectedResult));
+//
+//		// perform/action
+//		this.mock.perform(mockRequest).andExpect(matchStatus);
+//		this.mock.perform(mockRequest).andExpect(matchContent);
+
 	}
 
 	@Test
-	public void deleteTodo() throws Exception {
+	public void deleteTodoSuccessful() throws Exception {
+
+		// Set Up request:
+		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.DELETE,
+				"http://localhost:8080/todo/delete/" + ID);
+
+		// Set up expectation:
+		ResultMatcher matchStatus = MockMvcResultMatchers.status().isNoContent();
+
+		// perform
+		this.mock.perform(mockRequest).andExpect(matchStatus);
+
+	}
+
+	@Test
+	public void deleteTodoUnsuccessful() throws Exception {
+
+//		// Set Up request:
+//		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.DELETE,
+//				"http://localhost:8080/todo/delete/" + ID);
+//
+//		// Set up expectation:
+//		ResultMatcher matchStatus = MockMvcResultMatchers.status().is(500);
+//		
+//		// perform
+//		this.mock.perform(mockRequest).andExpect(matchStatus);
+
 	}
 
 }
