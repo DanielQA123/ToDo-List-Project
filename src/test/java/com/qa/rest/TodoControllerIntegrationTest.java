@@ -7,12 +7,15 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.persistance.domain.TodoDomain;
@@ -40,25 +43,33 @@ public class TodoControllerIntegrationTest {
 	}
 	
 	@Test
-	public void createTodo() {
+	public void createTodo() throws Exception {
 	}
 	
 	@Test
-	public void readAll() {
+	public void readAll() throws Exception {
 	}
 
 	@Test
-	public void readTodo() {
+	public void readTodo() throws Exception {
 		
-		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.GET, "todo/read/" + ID);
+		//Set Up request: 
+		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.GET, "http://localhost:8080/todo/read/" + ID);
+		
+		//Set up expectation: 
+		ResultMatcher matchStatus = MockMvcResultMatchers.status().isAccepted();
+		
+		//perform
+		this.mock.perform(mockRequest).andExpect(matchStatus);
+		
 	}
 
 	@Test
-	public void updateTodo() {
+	public void updateTodo() throws Exception{
 	}
 
 	@Test
-	public void deleteTodo() {
+	public void deleteTodo() throws Exception{
 	}
 
 }
