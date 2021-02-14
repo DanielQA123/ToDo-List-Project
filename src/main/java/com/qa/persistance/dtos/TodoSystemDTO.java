@@ -22,6 +22,12 @@ public class TodoSystemDTO {
 		this.todoList = todoList;
 	}
 
+	public TodoSystemDTO(Long id, String objective) {
+		super();
+		this.id = id;
+		this.objective = objective;
+	}
+
 	public Long getId() {
 		return id;
 	}

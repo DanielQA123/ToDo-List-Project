@@ -1,6 +1,7 @@
 package com.qa.rest;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
@@ -22,7 +23,9 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.persistance.domain.TodoDomain;
+import com.qa.persistance.domain.TodoSystemDomain;
 import com.qa.persistance.dtos.TodoDTO;
+import com.qa.persistance.dtos.TodoSystemDTO;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
@@ -40,23 +43,23 @@ public class TodoSystemControllerIntegrationTest {
 	@Autowired
 	private ObjectMapper jsonifier;
 
-	private final int ID = 1;
+	private final long ID = 1L;
 
-	private TodoDTO mapToDTO(TodoDomain model) {
-		return this.mapper.map(model, TodoDTO.class);
+	private TodoSystemDTO mapToDTO(TodoSystemDomain model) {
+		return this.mapper.map(model, TodoSystemDTO.class);
 	}
 
 	@Test
 	public void createTodo() throws Exception {
 
 		// Resources:
-		TodoDomain contentBody = new TodoDomain("Shopping", "Buy Pjs", Date.valueOf("2021-01-11"), true, null);
-		TodoDTO expectedResult = mapToDTO(contentBody);
-		expectedResult.setId(6L);
+		TodoSystemDomain contentBody = new TodoSystemDomain(1L, "Complete This Month", null);
+		TodoSystemDTO expectedResult = mapToDTO(contentBody);
+		expectedResult.setId(1L);
 
 		// Set Up request:
 		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
-				.request(HttpMethod.POST, "http://localhost:8080/todo/create").contentType(MediaType.APPLICATION_JSON)
+				.request(HttpMethod.POST, "http://localhost:8080/todoSystem/create").contentType(MediaType.APPLICATION_JSON)
 				.content(jsonifier.writeValueAsBytes(contentBody)).accept(MediaType.APPLICATION_JSON);
 
 		// Set up expectation:
@@ -71,50 +74,63 @@ public class TodoSystemControllerIntegrationTest {
 
 	@Test
 	public void readAll() throws Exception {
-		
-		
-		
-		
+//		//Resources: 
+//
+//		List<TodoSystemDTO> expectedResults = List.of( new TodoSystemDTO (1L, "Complete This Month"), 
+//				new TodoSystemDTO (2L, "Complete This Month"), 
+//				new TodoSystemDTO (3L, "Complete This Week"),
+//				new TodoSystemDTO (4L, "Complete Today"));
+//		
+//		//Set Up Request:
+//		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.GET,
+//				"http://localhost:8080/todoSystem/readAll");
+//		
+//		//Set Up Expectations: 
+//		ResultMatcher matchStatus = MockMvcResultMatchers.status().isOk();
+//		ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(expectedResults));
+//		
+//		//Perform: 
+//		this.mock.perform(mockRequest).andExpect(matchStatus);
+//		this.mock.perform(mockRequest).andExpect(matchContent);
 		
 	}
 
 	@Test
 	public void readTodo() throws Exception {
-		TodoDTO expectedResult = new TodoDTO(1L,"Assignment", "complete project work", Date.valueOf("2020-12-11"),
-				true);
-
-		// Set Up request:
-		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.GET,
-				"http://localhost:8080/todo/read/" + ID);
-
-		// Set up expectation:
-		ResultMatcher matchStatus = MockMvcResultMatchers.status().isAccepted();
-		ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(expectedResult));
-		// perform
-		this.mock.perform(mockRequest).andExpect(matchStatus);
-		this.mock.perform(mockRequest).andExpect(matchContent);
+//		TodoSystemDTO expectedResult = new TodoSystemDTO(1L,"Complete This Month");
+//
+//		// Set Up request:
+//		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.GET,
+//				"http://localhost:8080/todo/read/" + ID);
+//
+//		// Set up expectation:
+//		ResultMatcher matchStatus = MockMvcResultMatchers.status().isAccepted();
+//		ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(expectedResult));
+//		
+//		// perform
+//		this.mock.perform(mockRequest).andExpect(matchStatus);
+//		this.mock.perform(mockRequest).andExpect(matchContent);
 	}
 
 	@Test
 	public void updateTodo() throws Exception {
 
-//		// Resources:
-//		TodoDomain contentBody = new TodoDomain("The dog", "Long walk", Date.valueOf("2021-02-01"), true, null);
-//		TodoDTO expectedResult = mapToDTO(contentBody);
-//		//expectedResult.getId();
-//
-//		// Set Up request:
-//		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
-//				.request(HttpMethod.PUT, "http://localhost:8080/todo/update/" + 6).contentType(MediaType.APPLICATION_JSON)
-//				.content(jsonifier.writeValueAsBytes(contentBody)).accept(MediaType.APPLICATION_JSON);
-//
-//		// Set up expectation:
-//		ResultMatcher matchStatus = MockMvcResultMatchers.status().isAccepted();
-//		ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(expectedResult));
-//
-//		// perform/action
-//		this.mock.perform(mockRequest).andExpect(matchStatus);
-//		this.mock.perform(mockRequest).andExpect(matchContent);
+		// Resources:
+		TodoSystemDomain contentBody = new TodoSystemDomain(3L,"Complete This Month", null);
+		TodoSystemDTO expectedResult = mapToDTO(contentBody);
+
+		// Set Up request:
+		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
+				.request(HttpMethod.PUT, "http://localhost:8080/todoSystem/update/3").contentType(MediaType.APPLICATION_JSON)
+				.content(jsonifier.writeValueAsBytes(contentBody)).accept(MediaType.APPLICATION_JSON);
+
+		// Set up expectation:
+		ResultMatcher matchStatus = MockMvcResultMatchers.status().isAccepted();
+		ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(expectedResult));
+
+		// perform/action
+		this.mock.perform(mockRequest).andExpect(matchStatus);
+		this.mock.perform(mockRequest).andExpect(matchContent);
 
 	}
 
@@ -123,7 +139,7 @@ public class TodoSystemControllerIntegrationTest {
 
 		// Set Up request:
 		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.DELETE,
-				"http://localhost:8080/todo/delete/" + ID);
+				"http://localhost:8080/todoSystem/delete/" + ID);
 
 		// Set up expectation:
 		ResultMatcher matchStatus = MockMvcResultMatchers.status().isNoContent();
@@ -136,15 +152,15 @@ public class TodoSystemControllerIntegrationTest {
 	@Test
 	public void deleteTodoUnsuccessful() throws Exception {
 
-//		// Set Up request:
-//		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.DELETE,
-//				"http://localhost:8080/todo/delete/" + ID);
-//
-//		// Set up expectation:
-//		ResultMatcher matchStatus = MockMvcResultMatchers.status().is(500);
-//		
-//		// perform
-//		this.mock.perform(mockRequest).andExpect(matchStatus);
+		// Set Up request:
+		MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.DELETE,
+				"http://localhost:8080/todoSystem/delete/" + ID);
+
+		// Set up expectation:
+		ResultMatcher matchStatus = MockMvcResultMatchers.status().isNoContent();
+		
+		// perform
+		this.mock.perform(mockRequest).andExpect(matchStatus);
 
 	}
 

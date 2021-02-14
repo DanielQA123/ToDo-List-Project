@@ -72,15 +72,15 @@ public class TodoDTOTest {
 	}
 
 	@Test
-	public void isFinishTest() {
-		testDTO.isFinish();
-		assertEquals(true, testDTO.isFinish());
+	public void isDoneTest() {
+		testDTO.isDone();
+		assertEquals(true, testDTO.isDone());
 	}
 
 	@Test
-	public void setFinishTest() {
-		boolean finish = testDTO.isFinish();
-		testDTO.setFinish(true);
+	public void setDoneTest() {
+		boolean finish = testDTO.isDone();
+		testDTO.setDone(true);
 		assertEquals(true, finish);
 	}
 
