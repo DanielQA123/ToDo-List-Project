@@ -6,7 +6,7 @@ VALUES
 ('Complete Today');
 
 
-INSERT INTO TODO_DOMAIN(DATE, DESCRIPTION, FINISH, TITLE, THE_TODO_ID) 
+INSERT INTO TODO_DOMAIN(DATE, DESCRIPTION, DONE, TITLE, THE_TODO_ID) 
 VALUES 
 ('2020-12-11', 'complete project work', 'true', 'Assignment', 1),
 ('2020-12-21', 'Make Xmas dinner', 'false', 'Cook', 1),

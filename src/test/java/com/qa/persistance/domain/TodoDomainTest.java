@@ -69,15 +69,15 @@ public class TodoDomainTest {
 	}
 
 	@Test
-	public void isFinishTest() {
-		testDomain.isFinish();
-		assertEquals(false, testDomain.isFinish());
+	public void isDoneTest() {
+		testDomain.isDone();
+		assertEquals(false, testDomain.isDone());
 	}
 
 	@Test
-	public void setFinishTest() {
-		boolean finish = testDomain.isFinish();
-		testDomain.setFinish(true);
+	public void setDoneTest() {
+		boolean finish = testDomain.isDone();
+		testDomain.setDone(true);
 		assertEquals(false, finish);
 	}
 
