@@ -9,20 +9,32 @@ public class TodoDTO {
 	private String title;
 	private String description;
 	private Date date;
-	private boolean finish;
+	private boolean done;
 
 	public TodoDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 
-	public TodoDTO(Long id, String title, String description, Date date, boolean finish) {
+	public TodoDTO(String title, String description, Date date, boolean done) {
+		super();
+		this.title = title;
+		this.description = description;
+		this.date = date;
+		this.done = done;
+	}
+
+
+
+	public TodoDTO(Long id, String title, String description, Date date, boolean done) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.date = date;
-		this.finish = finish;
+		this.done = done;
 	}
 
 	public Long getId() {
@@ -57,12 +69,12 @@ public class TodoDTO {
 		this.date = date;
 	}
 
-	public boolean isFinish() {
-		return finish;
+	public boolean isDone() {
+		return done;
 	}
 
-	public void setFinish(boolean finish) {
-		this.finish = finish;
+	public void setDone(boolean done) {
+		this.done = done;
 	}
 
 }
