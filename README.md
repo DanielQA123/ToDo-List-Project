@@ -92,8 +92,10 @@ This section gives a list of instructions that are needed to download the softwa
 1. After forking and cloning this repo. On SpringBoot go on **File, Import, Existing Spring Project** 
 2. Open the project once you browse the root directory and select the required folder/project.  
 3. After selecting the folder, click finish or next. Then the project should be downloading on SpringBoot IDE. Once the download has been done, click on the pom.xml file 
-and change the artifact id. Then select the folder again and right click it and press Maven, then the update section.
-4. Click on the SpringBoot dashboard, so you can the run the specific project you want. 
+and change the artifact id. Then select the folder again and right click it and press Maven, then the update and wait for the project to build.
+4. Click on the SpringBoot dashboard, so you can the run the specific project you want. After selecting run on the console you should see "hello World" with the date and time meaning the local host tom cat server is set up.
+5. Change the jdbc URL to your local database or google cloud platform depending on your preference. 
+6. Open Postman and test if you can fetch the API's correctly before moving on.
 
 
 ---
@@ -124,9 +126,13 @@ See testing deployment, for instructions when conducting tests.
 
 ---
 ## Testing Deployment
+ 
+ - For **JUnit** testing each of the classes has a test class which can be run in according to the src/main/java file.
+ - To run the tests, click on the class you want to test in the src/test/java. Then **right click it and run as a JUnit test**
 
 
-
+ - For individual testing i.e. **integration testing** The controller is the main thing being tested to see if information is pulled from the repo and services classes. 
+ 
 ---
 ## Further Contribution
 
@@ -138,6 +144,8 @@ Please feel free to contribute by adding new templates to this project:
 4. Commit your changes (`git commit -m 'Add something'`)
 5. Push to the branch (`git push origin <feature branch name>`)
 6. Create a new Pull Request
+7. Selenium/Acceptance testing see if it meets the requirements for the user.
+8. Coding style test i.e. SonarQube. This helps test the viabillity with our whole source code.
 
 
 ---
@@ -168,9 +176,6 @@ Daniel Ahuchogu
 
 - **Choose an open source license**. Github. Available at: https://choosealicense.com/
 - **Getting started with writing and formatting on Github**. Github. Available at: https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/
-- **Markdown here cheatsheet**. Markdown Here Wiki. Available at: https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet
-- **Markdown quick reference**. Wordpress. Available at: https://en.support.wordpress.com/markdown-quick-reference/
-- **readme-template**. Dan Bader. Github. Available at: https://github.com/dbader/readme-template
 
 
 ---
