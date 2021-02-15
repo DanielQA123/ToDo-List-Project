@@ -97,34 +97,25 @@ This section gives a list of instructions that are needed to download the softwa
 ---
 ## Testing 
 
- - What is Testing:
+ - **What is Testing**:
     - Testing helps us test the functionality of a code to determine how well it works in a working environment. 
     - Its important because it increases the quality of the delivered code. This means code is less likely to break when in use.
-    - For this project a JUnit test, a mockito test and intergration test were conducted
-    - A Selenium test was also conducted to record how well the front-end section of the works.
-
+    - For this project a JUnit test with mockito test, integration system test and Selenium test were conducted
     
-1. JUnit Testing:
-    - A JUnit test is  
-    * [Java](https://www.java.com/en/download/)
+
+1. **JUnit Testing**:
+    - A JUnit test allows us to test some aspects of our code, to test the functionality of the code. 
+    - It's mainly used to identify defects early, to solve the issue quickly. 
+    - Unit testing is mainly used to test coverage. 
+
+2. **Integration Testing/Integration System Testing**:
+    - Integration testing tests the behaviour in the whole system. To check if it works as it intends, reducing the need for manual tests. 
+    - Essentially check if each part of the code interacts with each other. 
+
+3. **Selenium Testing**:
+    - 
 
 
-3. What steps need to be taken when conducting tests?
-    - Do they need to install any software?
-    - Is there any hardware requirements or dependencies?
-    - After the installation, how they compile or run the code?
-4. Execution examples
-    - You could provide examples of execution with code and screenshots
-
-other things you could add:
-
-- Table of content
-- Test cases
-- Know bugs
-- Version
-- Contributors
-- License
-- References
 
 
 ---
