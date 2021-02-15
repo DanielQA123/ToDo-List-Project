@@ -17,15 +17,15 @@ public class TodoDomain {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotNull
+//	@NotNull
 	private String title;
 
 //	@Size(min = 15, message="Enter Your Objectives")
 
-	@NotNull
+//	@NotNull
 	private String description;
 
-	@NotNull
+//	@NotNull
 	private Date date;
 	private boolean done;
 

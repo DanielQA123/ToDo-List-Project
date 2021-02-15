@@ -1,5 +1,5 @@
 # To-Do-List-Project
-##Test Coverage: ~
+Test Coverage: 95% on src/main/java
 
 ---
 #Project Description
@@ -89,9 +89,11 @@ The required software:
 This section gives a list of instructions that are needed to download the software to get a devlopment environment running, which are listed in the prerequisites section of the README. 
 
 
-1. **_Step one_** You can fork and clone this to your local computer  
-2. **_Step two_** Open the project in your IDE as a Maven project  
-3. **_Step three_** You will need to change the JDBCconnection url
+1. After forking and cloning this repo. On SpringBoot go on **File, Import, Existing Spring Project** 
+2. Open the project once you browse the root directory and select the required folder/project.  
+3. After selecting the folder, click finish or next. Then the project should be downloading on SpringBoot IDE. Once the download has been done, click on the pom.xml file 
+and change the artifact id. Then select the folder again and right click it and press Maven, then the update section.
+4. Click on the SpringBoot dashboard, so you can the run the specific project you want. 
 
 
 ---
@@ -100,7 +102,7 @@ This section gives a list of instructions that are needed to download the softwa
  - **What is Testing**:
     - Testing helps us test the functionality of a code to determine how well it works in a working environment. 
     - Its important because it increases the quality of the delivered code. This means code is less likely to break when in use.
-    - For this project a JUnit test with mockito test, integration system test and Selenium test were conducted
+    - For this project a JUnit test with mockito test, integration system test and Selenium test were conducted. 
     
 
 1. **JUnit Testing**:
@@ -108,25 +110,21 @@ This section gives a list of instructions that are needed to download the softwa
     - It's mainly used to identify defects early, to solve the issue quickly. 
     - Unit testing is mainly used to test coverage. 
 
+
 2. **Integration Testing/Integration System Testing**:
     - Integration testing tests the behaviour in the whole system. To check if it works as it intends, reducing the need for manual tests. 
     - Essentially check if each part of the code interacts with each other. 
 
 3. **Selenium Testing**:
-    - 
+    - Selenium is a tool that allows used automated web browsers for tetsing purposes. Therefore it provides an interface through a web driver. 
+    - Selenium testing helps us tests the code related to the user. You could say it's similar to acceptance testing. 
+    - Acceptance testing is in regards to test the user needs and requirements in relation to the frontend. 
 
-
-
+See testing deployment, for instructions when conducting tests. 
 
 ---
-## Templates
+## Testing Deployment
 
-- _cheatsheet.md
-    - a simple markdown cheatsheet (in construction)
-- assignment.md
-    - an example of an university assignment  
-- opensource.md
-    - a template for an open source project made by [@dbader](https://github.com/dbader)
 
 
 ---
@@ -147,9 +145,10 @@ Please feel free to contribute by adding new templates to this project:
 
 For a quick depolyment of the project on the command line interface (CLI): 
 
-1. **Type CMD once you locate the save project file on your local machine**  
-
-
+1. ** Open a terminal on your local machine, using the git bash command** 
+2. ** In the terminal use, the command mvn clean package to get clear old files and build a new file** 
+3. ** You should get a war file similar to a jar file, which can be deployed othe CLI**
+4. ** Open the command line and type the war file artifact name into the command line to test if it works**
 
 
 
