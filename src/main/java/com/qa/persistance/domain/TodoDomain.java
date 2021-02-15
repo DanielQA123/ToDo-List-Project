@@ -27,7 +27,7 @@ public class TodoDomain {
 
 	@NotNull
 	private Date date;
-	private boolean finish;
+	private boolean done;
 
 	@ManyToOne
 	private TodoSystemDomain theTodo;
@@ -39,14 +39,24 @@ public class TodoDomain {
 		super();
 	}
 
-	public TodoDomain(Long id, String title, String description, Date date, boolean finish,
+	public TodoDomain(Long id, String title, String description, Date date, boolean done,
 			TodoSystemDomain theTodo) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.date = date;
-		this.finish = finish;
+		this.done = done;
+		this.theTodo = theTodo;
+	}
+
+	public TodoDomain(String title, String description, Date date, boolean done,
+			TodoSystemDomain theTodo) {
+		super();
+		this.title = title;
+		this.description = description;
+		this.date = date;
+		this.done = done;
 		this.theTodo = theTodo;
 	}
 
@@ -82,12 +92,12 @@ public class TodoDomain {
 		this.date = date;
 	}
 
-	public boolean isFinish() {
-		return finish;
+	public boolean isDone() {
+		return done;
 	}
 
-	public void setFinish(boolean finish) {
-		this.finish = finish;
+	public void setDone(boolean done) {
+		this.done = done;
 	}
 
 	public TodoSystemDomain getTheTodo() {
