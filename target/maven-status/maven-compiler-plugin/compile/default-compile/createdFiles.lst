@@ -1,0 +1,12 @@
+com\qa\rest\TodoSystemController.class
+com\qa\persistance\dtos\TodoSystemDTO.class
+com\qa\persistance\repos\TodoRepo.class
+com\qa\services\TodoService.class
+com\qa\ToDoListApplication.class
+com\qa\services\TodoSystemService.class
+com\qa\persistance\repos\TodoSystemRepo.class
+com\qa\persistance\dtos\TodoDTO.class
+com\qa\rest\TodoController.class
+com\qa\persistance\domain\TodoDomain.class
+com\qa\config\AppConfig.class
+com\qa\persistance\domain\TodoSystemDomain.class

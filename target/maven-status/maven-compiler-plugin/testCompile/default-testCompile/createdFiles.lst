@@ -1,0 +1,12 @@
+com\qa\persistance\dtos\TodoDTOTest.class
+com\qa\services\TodoSystemServiceTest.class
+com\qa\JUnitExample.class
+com\qa\rest\TodoControllerTest.class
+com\qa\persistance\dtos\TodoSystemDTOTest.class
+com\qa\rest\TodoSystemControllerIntegrationTest.class
+com\qa\services\TodoServiceTest.class
+com\qa\ToDoListApplicationTests.class
+com\qa\rest\TodoControllerIntegrationTest.class
+com\qa\persistance\domain\TodoSystemDomainTest.class
+com\qa\rest\TodoSystemControllerTest.class
+com\qa\persistance\domain\TodoDomainTest.class
