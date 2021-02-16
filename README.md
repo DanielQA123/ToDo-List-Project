@@ -159,6 +159,8 @@ For a quick depolyment of the project on the command line interface (CLI):
 2. **In the terminal use, the command mvn clean package to get clear old files and build a new file** 
 3. **You should get a war file similar to a jar file, which can be deployed othe CLI**
 4. **Open the command line and type the war file artifact name into the command line to test if it works**
+5. **If you can't deploy it on the command line, on your web browser type localhost/index.html. To access the web page**
+6. **On the webpage right click and select inspect to see if JavaScript is calling and storing the info**
 
 
 
