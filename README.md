@@ -20,8 +20,8 @@ See the prequisites and the deployment section for further details about the liv
 
 1. **You can fork and clone this repository to a folder on your local computer.**  
 2. **Open the project in your SpringBoot IDE as a Maven project/Spring project.** 
-3. ** You will need to open Postman and type the local host URL for the command you want to test to see if it works.**
-4. ** You will need to open a localhost URL to test the database connection (i.e. localost:8080/h2) or change the jdbc URL in the application properties class in the src/main/resources folder to connect the database on a GCP or another SQL host.** 
+3. **You will need to open Postman and type the local host URL for the command you want to test to see if it works.**
+4. **You will need to open a localhost URL to test the database connection (i.e. localost:8080/h2) or change the jdbc URL in the application properties class in the src/main/resources folder to connect the database on a GCP or another SQL host.** 
 
 ---
 ### Prerequisites
@@ -155,10 +155,10 @@ Please feel free to contribute by adding new templates to this project:
 
 For a quick depolyment of the project on the command line interface (CLI): 
 
-1. ** Open a terminal on your local machine, using the git bash command** 
-2. ** In the terminal use, the command mvn clean package to get clear old files and build a new file** 
-3. ** You should get a war file similar to a jar file, which can be deployed othe CLI**
-4. ** Open the command line and type the war file artifact name into the command line to test if it works**
+1. **Open a terminal on your local machine, using the git bash command** 
+2. **In the terminal use, the command mvn clean package to get clear old files and build a new file** 
+3. **You should get a war file similar to a jar file, which can be deployed othe CLI**
+4. **Open the command line and type the war file artifact name into the command line to test if it works**
 
 
 
@@ -176,9 +176,10 @@ Daniel Ahuchogu
 ---
 ### References
 
-- **Choose an open source license**. Github. Available at: https://choosealicense.com/
-- **Getting started with writing and formatting on Github**. Github. Available at: https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/
-
+- **JUnit Test For CRUD operations**. Available at: https://www.codejava.net/frameworks/spring-boot/junit-tests-for-spring-data-jpa
+- **Creating a Todo Application**. Available at: https://blog.usejournal.com/create-a-to-do-list-application-with-html-css-and-pure-js-533e1b07c20e
+- **SDLC V-model**. Avaliable at: https://www.geeksforgeeks.org/software-engineering-sdlc-v-model/
+- **Mini Todo Mangement System**. Avaliable at: https://www.javaguides.net/2018/09/mini-todo-management-project-using-spring-boot-springmvc-springsecurity-jsp-hibernate-mysql.html
 
 ---
 ## License
