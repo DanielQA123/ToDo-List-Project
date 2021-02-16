@@ -1,5 +1,7 @@
 # To-Do-List-Project
+
 Test Coverage: 95% on src/main/java
+- (This is excluding the coverage of integration testing)
 
 ---
 #Project Description
